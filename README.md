@@ -17,5 +17,6 @@ https://youtu.be/zOylgRdzv_U
 #### Recover: 
 - Implement a program that recovers JPEGs from a forensic image, per the below.
 - $ ./recover card.raw
+- check50 does not succeed
 ###### Walkthrough:
 https://youtu.be/hOWYGowwId0
