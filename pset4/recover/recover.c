@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     if(img==NULL)
     {
         fprintf(stderr, "Cannot create destination file");
-        return 2;
+        return 3;
     }
     //Iterate while the buffer size is equal to 512, if it is smaller -> End of file
     while(fread(&buffer, 1, 512, inptr) == 512)
@@ -47,7 +47,6 @@ int main(int argc, char *argv[])
             //check whether the first file already exists
             if(found)
             {
-
                 //close the previous img file
                 fclose(img);
                 //update filename
@@ -59,7 +58,7 @@ int main(int argc, char *argv[])
                 if(img==NULL)
                 {
                     fprintf(stderr, "Cannot create destination file");
-                    return 2;
+                    return 3;
                 }
                 //write bytes to the new file
                 fwrite(&buffer, 1, 512, img);
@@ -70,11 +69,11 @@ int main(int argc, char *argv[])
             {
                 //increment img counter for next file name
                 imgNo++;
-                //first img found is true
-                found = true;
                 //start writing the first block into the first file
                 fwrite(&buffer, 1, 512, img);
             }
+            //img found to true
+                found = true;
         }
         //write the next 512 bytes of a file
         else if(found)
