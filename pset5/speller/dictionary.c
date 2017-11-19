@@ -3,8 +3,22 @@
  */
 
 #include <stdbool.h>
+#include <stdio.h>
+
 
 #include "dictionary.h"
+
+/**
+ * Define the node of a trie data structure
+ */
+typedef struct node
+{
+    bool is_word;
+    struct node *children[27];
+}
+node;
+
+node *root;
 
 /**
  * Returns true if word is in dictionary else false.
@@ -20,8 +34,23 @@ bool check(const char *word)
  */
 bool load(const char *dictionary)
 {
-    // TODO
-    return false;
+
+    //read the dictionary
+    FILE *dict = fopen(dictionary, "r");
+    if (dict == NULL)
+    {
+        return false;
+    }
+    char word[LENGTH];
+    while(fgets(word, LENGTH, dict) != NULL)
+    {
+        //TODO add each word to the trie
+
+        //print each word for test purposes
+        printf("%s", word);
+    }
+
+    return true;
 }
 
 /**
@@ -39,5 +68,5 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    return false;
+    return true;
 }
