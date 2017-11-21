@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
             // print word if misspelled
             if (misspelled)
             {
- //               printf("%s\n", word);
+                printf("%s\n", word);
                 misspellings++;
             }
 
@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
     time_unload = calculate(&before, &after);
 
     // report benchmarks
-//    printf("\nWORDS MISSPELLED:     %d\n", misspellings);
+    printf("\nWORDS MISSPELLED:     %d\n", misspellings);
     printf("WORDS IN DICTIONARY:  %d\n", n);
     printf("WORDS IN TEXT:        %d\n", words);
     printf("TIME IN load:         %.2f\n", time_load);

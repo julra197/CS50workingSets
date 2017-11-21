@@ -60,7 +60,6 @@ void insertInTrie(char *word)
                     newPointer->children[slot] = getNode();
                 }
                 newPointer = newPointer->children[slot];
-                printf("%d", slot);
             }
         }
     newPointer->is_word = true;
@@ -71,8 +70,29 @@ void insertInTrie(char *word)
  */
 bool check(const char *word)
 {
-    // TODO
-    return false;
+    bool retVal = false;
+    node *currPointer = root;
+    for(int i = 0, len = strlen(word); i<len; i++)
+    {
+        int slot = word[i]-97;
+        if(slot<0)
+        {
+            slot += 32;
+        }
+        if(currPointer->children[slot] != NULL)
+        {
+            currPointer = currPointer->children[slot];
+            if(i == len-1 && currPointer->is_word == true)
+            {
+                retVal = true;
+            }
+        }
+        else
+        {
+            return retVal;
+        }
+    }
+    return retVal;
 }
 
 /**
@@ -108,10 +128,25 @@ unsigned int size(void)
 }
 
 /**
+ * Uses recursion to unload
+ */
+void unloadPointer(node* pointer)
+{
+    for(int i = 0; i < 27; i++)
+    {
+        if(pointer->children[i] != NULL)
+        {
+            unloadPointer(pointer->children[i]);
+        }
+    }
+    free(pointer);
+}
+
+/**
  * Unloads dictionary from memory. Returns true if successful else false.
  */
 bool unload(void)
 {
-    // TODO
+    unloadPointer(root);
     return true;
 }
