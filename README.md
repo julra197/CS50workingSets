@@ -22,16 +22,6 @@ https://youtu.be/zOylgRdzv_U
 https://youtu.be/hOWYGowwId0
 ## pset5
 #### speller:
-- Implement a program that spell-checks a file, per the below.
-- $ ./speller texts/austinpowers.txt
-- MISSPELLED WORDS
-- [...]
-- WORDS MISSPELLED:
-- WORDS IN TEXT:
-- TIME IN load:
-- TIME IN check:
-- TIME IN size:
-- TIME IN unload:
-- TIME IN TOTAL:
+- Implement a program that spell-checks a file
 ###### Walkthrough:
 https://youtu.be/u9-1U1Rgo1o
