@@ -119,12 +119,33 @@ bool load(const char *dictionary)
 }
 
 /**
+ * Count the size of the trie
+ * Uses recursion
+ */
+int counter = 0;
+
+unsigned int count(node* pointer)
+{
+    if(pointer->is_word)
+    {
+        counter++;
+    }
+    for(int i = 0; i < 27; i++)
+    {
+        if(pointer->children[i] != NULL)
+        {
+            count(pointer->children[i]);
+        }
+    }
+    return counter;
+}
+/**
  * Returns number of words in dictionary if loaded else 0 if not yet loaded.
  */
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+    printf("size called");
+    return count(root);
 }
 
 /**
