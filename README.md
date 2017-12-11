@@ -1,5 +1,5 @@
 # CS50workingSets
-- My solutions for Harvard CS50 programming exervises.
+- My solutions for Harvard CS50 programming exercises.
 - No garantee for corectness
 ## pset4
 #### whodunit:
